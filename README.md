@@ -1,6 +1,7 @@
 YouTube Video Downloader
 
 This is a Python script that uses the yt_dlp library to download videos from a specified YouTube channel that were uploaded within the past 24 hours. The downloaded videos are saved to a specified directory and their metadata is saved to a file.
+
 Requirements
 
     Python 3.6 or later
