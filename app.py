@@ -52,7 +52,7 @@ while True:
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         # Get the metadata for the videos from the specified channel URL
         print(f"Checking for new videos uploaded in the past 24 hours...")
-        metadata = ydl.extract_info('https://www.youtube.com/channel/UCQeRaTukNYft1_6AZPACnog/videos', download=False)
+        metadata = ydl.extract_info('https://www.youtube.com/channel/UCQeRaTukNYft1_6AZPACnog/videos', download=True)
 
         # Iterate over the metadata for each video
         for video in metadata['entries']:
