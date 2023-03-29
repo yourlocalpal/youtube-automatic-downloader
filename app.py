@@ -4,7 +4,7 @@ import time
 import yt_dlp
 
 # Define the path where videos will be downloaded
-download_path = "G:\\plex\\Twitch"
+download_path = "G:\\plex\\Twitch" #this is a windows path. replace it for your OS and dir path
 
 # Define the path to the file that stores the download history
 history_file = f"{download_path}\\downloaded.txt"
