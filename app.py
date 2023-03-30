@@ -27,8 +27,8 @@ while True:
     past_time = current_time - datetime.timedelta(hours=48)
 
     # Convert times to string format
-    current_time_str = current_time.strftime("%Y%m%d%H%M%S")
-    past_time_str = past_time.strftime("%Y%m%d%H%M%S")
+    current_time_str = current_time.strftime("%Y%m%d")
+    past_time_str = past_time.strftime("%Y%m%d")
 
     # Define the output template for downloaded videos
     output_template = f"{download_path}\\%(uploader)s\\%(title)s_{current_time_str}.%(ext)s"
