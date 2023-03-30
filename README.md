@@ -8,6 +8,7 @@ Requirements
     yt_dlp library
     ffmpeg library
     Warning: On Windows OS, you need to add ffmpeg to system variables.
+    I personally use scoop and its a great tool. you could simply run scoop install ffmpeg in cmd and it would be much quicker than doing it manually:
     
         Download FFmpeg from the official website (https://ffmpeg.org/download.html#build-windows) and extract the contents to a folder (e.g., C:\ffmpeg).
         Right-click on "This PC" (or "My Computer") and select "Properties".
