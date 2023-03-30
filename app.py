@@ -23,7 +23,7 @@ while True:
     # Get the current date and time
     current_time = datetime.datetime.now()
 
-    # Calculate the time 24 hours ago
+    # Calculate the time 48 hours ago
     past_time = current_time - datetime.timedelta(hours=48)
 
     # Convert times to string format
