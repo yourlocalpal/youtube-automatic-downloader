@@ -44,7 +44,7 @@ while True:
         'playlistend': 3,
         'page': 1,
         'outtmpl': os.path.join(download_path, '%(uploader)s', '%(title)s.%(ext)s'),
-        'format': 'bestvideo+bestaudio/best',
+        'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     }
 
     # Create a new yt-dlp object with the specified options
