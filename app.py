@@ -3,6 +3,7 @@ import datetime
 import time
 import yt_dlp
 import ffmpeg
+#import ffmpeg-python
 
 # Define the path where videos will be downloaded
 download_path = "G:\\plex\\Twitch" # This Path is for Windows OS. Update for your OS and path.
@@ -76,11 +77,18 @@ while True:
                     # Merge the video and audio streams using ffmpeg
                     video_path = os.path.join(download_path, video['uploader'], f"{video_date} {video['title']}.mp4")
                     audio_path = os.path.join(download_path, video['uploader'], f"{video_date} {video['title']}.m4a")
-                    output_path = os.path.join(download_path, video['uploader'], output_filename)
+                    output_path = os.path.join(download_path, video['uploader'],
+                                               f"{video_date} {video['title']}.merged.mp4")
+
+                    if not os.path.exists(os.path.dirname(output_path)):
+                        os.makedirs(os.path.dirname(output_path))
+
+                    # Open video and audio streams
                     video_stream = ffmpeg.input(video_path)
                     audio_stream = ffmpeg.input(audio_path)
-                    merged_stream = ffmpeg.concat(video_stream, audio_stream, v=1, a=1).output(output_path, codec="copy").run()
-                    print(f"Video '{video['title']}' downloaded and merged successfully!")
+
+                    # Merge streams and write output
+                    merged_stream = ffmpeg.concat(video_stream, audio_stream, v=1, a=1).output(output_path,codec="libx264",strict='experimental').run()
 
                     # Add the downloaded ID to the history file
                     downloaded_ids.add(video['id'])
@@ -88,7 +96,7 @@ while True:
                         f.write(f"{video['id']}\n")
 
                     # Delete the original video and audio files
-                    os.remove(video_path)
+                    #os.remove(video_path)
                     os.remove(audio_path)
                 else:
                     print(f"Video '{video['title']}' already downloaded, skipping...")
