@@ -13,7 +13,7 @@ Usage
     Modify the download_path variable to specify the directory where downloaded videos should be saved.
     Modify the history_file variable to specify the file where download history should be saved.
     Run the script using python app.py in the command line.
-    The script will check for new videos uploaded in the past 24 hours every hour and download any new videos it finds.
+    The script will check for new videos uploaded in the past 48 hours every hour and download any new videos it finds.
 
 Note: You may need to modify the ydl_opts dictionary to specify different options for yt_dlp based on your needs.
 
