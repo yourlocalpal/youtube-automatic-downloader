@@ -4,7 +4,7 @@ import time
 import yt_dlp
 
 # Define the path where videos will be downloaded
-download_path = "G:\\plex\\Twitch" #this is a windows path. replace it for your OS and dir path
+download_path = "G:\\plex\\Twitch" # This Path is for Windows OS. Update for your OS and path.
 
 # Define the path to the file that stores the download history
 history_file = f"{download_path}\\downloaded.txt"
@@ -24,14 +24,14 @@ while True:
     current_time = datetime.datetime.now()
 
     # Calculate the time 24 hours ago
-    past_time = current_time - datetime.timedelta(hours=24)
+    past_time = current_time - datetime.timedelta(hours=48)
 
     # Convert times to string format
     current_time_str = current_time.strftime("%Y%m%d%H%M%S")
     past_time_str = past_time.strftime("%Y%m%d%H%M%S")
 
     # Define the output template for downloaded videos
-    output_template = f"{download_path}\\%(uploader)s\\%(title)s.%(ext)s"
+    output_template = f"{download_path}\\%(uploader)s\\%(title)s_{current_time_str}.%(ext)s"
 
     # Define the options for yt-dlp
     ydl_opts = {
@@ -44,7 +44,7 @@ while True:
         'writedescription': True,
         'writeinfojson': True,
         'writethumbnail': True,
-        'playlistend': 5,
+        'playlistend': 10,
         'page': 1
     }
 
@@ -52,7 +52,7 @@ while True:
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         # Get the metadata for the videos from the specified channel URL
         print(f"Checking for new videos uploaded in the past 24 hours...")
-        metadata = ydl.extract_info('https://www.youtube.com/channel/UCQeRaTukNYft1_6AZPACnog/videos', download=True)
+        metadata = ydl.extract_info('https://www.youtube.com/@AsmonTV/videos', download=True)
 
         # Iterate over the metadata for each video
         for video in metadata['entries']:
@@ -61,6 +61,10 @@ while True:
                 # Check if the video has already been downloaded
                 if video['id'] not in downloaded_ids:
                     # Download the video
+                    video_date = datetime.datetime.strptime(video['upload_date'], "%Y%m%d").strftime("%Y-%m-%d")
+                    output_filename = f"{video_date} {video['title']}.{video['ext']}"
+                    output_template = os.path.join(download_path, "%(uploader)s", output_filename)
+                    ydl_opts['outtmpl'] = output_template
                     print(f"Downloading video '{video['title']}'...")
                     ydl.download(['https://www.youtube.com/watch?v=' + video['id']])
 
