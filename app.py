@@ -43,7 +43,7 @@ while True:
         'writethumbnail': True,
         'playlistend': 3,
         'page': 1,
-        'outtmpl': 'G:/plex/Twitch/%(title)s.%(ext)s',
+        'outtmpl': os.path.join(download_path, '%(uploader)s', '%(title)s.%(ext)s'),
         'format': 'bestvideo+bestaudio/best',
     }
 
@@ -79,8 +79,7 @@ while True:
                     output_path = os.path.join(download_path, video['uploader'], output_filename)
                     video_stream = ffmpeg.input(video_path)
                     audio_stream = ffmpeg.input(audio_path)
-                    merged_stream = ffmpeg.concat(video_stream, audio_stream, v=1, a=1).output(output_path,
-                                                                                               codec="copy").run()
+                    merged_stream = ffmpeg.concat(video_stream, audio_stream, v=1, a=1).output(output_path, codec="copy").run()
                     print(f"Video '{video['title']}' downloaded and merged successfully!")
 
                     # Add the downloaded ID to the history file
