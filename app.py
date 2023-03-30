@@ -77,8 +77,7 @@ while True:
                     # Merge the video and audio streams using ffmpeg
                     video_path = os.path.join(download_path, video['uploader'], f"{video_date} {video['title']}.mp4")
                     audio_path = os.path.join(download_path, video['uploader'], f"{video_date} {video['title']}.m4a")
-                    output_path = os.path.join(download_path, video['uploader'],
-                                               f"{video_date} {video['title']}.merged.mp4")
+                    output_path = os.path.join(download_path, video['uploader'],f"{video_date} {video['title']}.merged.mp4")
 
                     if not os.path.exists(os.path.dirname(output_path)):
                         os.makedirs(os.path.dirname(output_path))
