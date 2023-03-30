@@ -27,4 +27,3 @@ Usage
 
 Note: You may need to modify the ydl_opts dictionary to specify different options for yt_dlp based on your needs.
 
-Note2: ydl_opts = {'outtmpl':..} is steering where the output will be. I will update  the functionality to be fluid with the youtubers name and save to correct paths in the future
