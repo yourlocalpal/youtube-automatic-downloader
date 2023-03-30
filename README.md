@@ -6,7 +6,15 @@ Requirements
 
     Python 3.6 or later
     yt_dlp library
+    Warning: On Windows OS, you need to add ffmpeg to system variables.
+        Download FFmpeg from the official website (https://ffmpeg.org/download.html#build-windows) and extract the contents to a folder (e.g., C:\ffmpeg).
+        Right-click on "This PC" (or "My Computer") and select "Properties".
+        Click on "Advanced system settings" and then click on the "Environment Variables" button.
+        In the "System variables" section, scroll down and find the "Path" variable and click on "Edit".
+        Click on "New" and enter the path to the FFmpeg folder (e.g., C:\ffmpeg\bin) and click "OK".
+        Click "OK" to close all windows and restart your command prompt.
 
+        After following these steps, you should be able to call FFmpeg from the command prompt by simply typing "ffmpeg".
 Usage
 
     Install the yt_dlp library by running pip install yt_dlp in the command line.
