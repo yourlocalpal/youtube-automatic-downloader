@@ -20,7 +20,7 @@ Note:
 
     You may need to modify the ydl_opts dictionary to specify different options for yt_dlp based on your needs.
     You may need to install the ffmpeg-python library if you run into syntax errors. However to call the python ffmpeg package you still just use import ffmpeg
-    On Windows OS, you need to add ffmpeg to system variables. You receive errors otherwise.
+    On Windows OS, you may need to add ffmpeg to system variables. You could receive errors otherwise.
     I personally use scoop for easy installation. It's a great tool. You could simply run scoop install ffmpeg in cmd and it would be much quicker than doing it             manually:
     
         Download FFmpeg from the official website (https://ffmpeg.org/download.html#build-windows) and extract the contents to a folder (e.g., C:\ffmpeg).
