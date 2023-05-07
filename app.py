@@ -96,7 +96,8 @@ while True:
 
                     # Delete the original video and audio files
                     #os.remove(video_path)
-                    os.remove(audio_path)
+                    #os.remove(audio_path)
+                    #ytdlp already does this after merge
                 else:
                     print(f"Video '{video['title']}' already downloaded, skipping...")
             else:
