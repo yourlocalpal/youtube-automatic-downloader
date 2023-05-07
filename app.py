@@ -6,7 +6,7 @@ import ffmpeg
 #import ffmpeg-python
 
 # Define the path where videos will be downloaded
-download_path = "G:\\plex\\Twitch" # This Path is for Windows OS. Update for your OS and path.
+download_path = "C:\\PATH\\HERE" # This Path is for Windows OS. Update for your OS and path.
 
 # Define the path to the file that stores the download history
 history_file = os.path.join(download_path, "downloaded.txt")
