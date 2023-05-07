@@ -53,7 +53,7 @@ while True:
 
         # Get the metadata for the videos from the specified channel URL
         print(f"Checking for new videos uploaded in the past 48 hours...")
-        metadata = ydl.extract_info('https://www.youtube.com/@AsmonTV/videos', download=True)
+        metadata = ydl.extract_info('https://www.youtube.com/@CHANNELID/videos', download=True)
 
         # Wait for one hour before checking for new videos again
         print("Waiting for one hour before checking for new videos again...")
